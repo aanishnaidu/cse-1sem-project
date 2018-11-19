@@ -1,0 +1,39 @@
+import time
+from datetime import timedelta
+from datetime import datetime
+FMT = '%H:%M:%S'
+
+
+
+listforled=[['10:00:30','00:30:20','11:20:40','00:07:05','20:08:07','00:40:09'],['10:05:00','00:25:00','11:15:0','00:08:00','13:00:00','00:05:00','20:08:07','00:25:00']]
+
+
+
+
+
+
+for i in range (len(listforled1)):
+    for j in range(0,len(listforled1[i]),2):
+        object1 = datetime.strptime(listforled1[i][j],FMT)
+        object2 = datetime.strptime(listforled1[i][j+1],FMT)
+        min1 = object1 - timedelta(seconds=600)
+        min2 = object2 - timedelta(seconds=600)
+        max1 = object1 + timedelta(seconds=600)                            
+        max2 = object2 + timedelta(seconds=600)
+  
+
+
+         
+        for k in range(len(listforled1)):
+            if(k!=i):
+                for l in range(0,len(listforled1[k]),2):
+                    object3 = datetime.strptime(listforled1[k][l],FMT)
+                    object4 = datetime.strptime(listforled1[k][l+1],FMT)
+                     
+                     
+                    if(object3>=min1 and object3<=max1):
+                        if(object4<=max2 and object4>= min2):
+                            print(listforled1[k][l])
+         
+         
+
