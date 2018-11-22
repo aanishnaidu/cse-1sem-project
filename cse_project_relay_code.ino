@@ -1,7 +1,9 @@
 int x;
+#include <SoftwareSerial.h>
+additional Genotronex(10, 11);
 void setup() {
   // put your setup code here, to run once:
-  Serial.begin(9600);
+  additional.begin(9600);
   pinMode(3,OUTPUT);
   pinMode(4,OUTPUT);
   pinMode(5,OUTPUT);
@@ -10,7 +12,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  x=Serial.read();
+  x=additional.read();
   if (x=='1'){
     digitalWrite(3,HIGH);
     
